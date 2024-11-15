@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.web.mapper.ClassMapper">
+
+    <!--更新班级-->
+    <update id="update">
+        update class
+        <set>
+            <if test="className !=null and className !=''">
+                class_name = #{className},
+            </if>
+            <if test="classRoom !=null and classRoom !=''">
+                class_room = #{classRoom},
+            </if>
+
+
+            begin_time = #{beginTime},
+
+
+            end_time = #{endTime}
+
+            <if test="masterTeacher !=null and masterTeacher !=''">
+                master_teacher = #{masterTeacher},
+            </if>
+
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--条件查询-->
+    <select id="page" resultType="com.example.web.pojo.Classes">
+        select *
+        from class
+        <where>
+            <if test="classname!=null and classname != ''">
+                class_name like concat('%',#{classname},'%')
+            </if>
+            <if test="end != null">
+                and end_time between #{begin} and #{end}
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+</mapper>
