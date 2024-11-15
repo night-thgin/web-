@@ -24,7 +24,7 @@ public class StudentcourseController {
     public Result selectAll(){
         log.info("查询全部选课数据");
 
-        List<Studentcourse> StudentcourseList = studentcourseService.selectAll();
+        List<Studentcoursename> StudentcourseList = studentcourseService.selectAll();
 
         return Result.success(StudentcourseList);
     }

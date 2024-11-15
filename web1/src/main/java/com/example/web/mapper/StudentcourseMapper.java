@@ -8,8 +8,10 @@ import java.util.List;
 
 @Mapper
 public interface StudentcourseMapper {
-    @Select("SELECT * FROM studentcourse")
-    List<Studentcourse> selectAll();
+    @Select("SELECT studentcourse.id ,student.student_name ,student.sex ,course.course_name ,course.classroom_id " +
+            "FROM studentcourse JOIN student ON studentcourse.student_id = student.student_id " +
+            "JOIN course ON studentcourse.course_id = course.course_id ")
+    List<Studentcoursename> selectAll();
 
     @Select("SELECT studentcourse.id ,student.student_name ,student.sex ,course.course_name ,course.classroom_id " +
             "FROM studentcourse JOIN student ON studentcourse.student_id = student.student_id " +

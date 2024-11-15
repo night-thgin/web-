@@ -19,7 +19,7 @@ public class StudentcourseServiceImpl implements StudentcourseService {
     private StudentcourseMapper studentcourseMapper;
 
     @Override
-    public List<Studentcourse> selectAll() {
+    public List<Studentcoursename> selectAll() {
         return studentcourseMapper.selectAll();
     }
 

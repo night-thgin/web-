@@ -4,7 +4,7 @@ import com.example.web.pojo.Studentcoursename;
 import java.util.List;
 
 public interface StudentcourseService {
-    List<Studentcourse> selectAll();
+    List<Studentcoursename> selectAll();
 
     List<Studentcoursename> selectbyCourse(String course_id);
 
